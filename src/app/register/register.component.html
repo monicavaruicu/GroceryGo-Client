@@ -1,13 +1,13 @@
 <div fxLayout="row" fxLayoutAlign="center center" class="main-container">
     <mat-card fxFlex="50%" class="register-card">
         <mat-card-content>
-            <form>
+            <form [formGroup]="registerForm" id="registerForm">
                 <div>
                     <div fxLayout="row" fxLayoutGap="2%">
                         <div fxFlex="49%">
                             <mat-form-field appearance="outline" fxFlex="100%">
                                 <mat-label>FirstName</mat-label>
-                                <input matInput />
+                                <input matInput formControlName="firstName" />
                             </mat-form-field>
                         </div>
                         <div fxFlex="49%">
@@ -21,13 +21,13 @@
                         <div fxFlex="49%">
                             <mat-form-field appearance="outline" fxFlex="100%">
                                 <mat-label>Email</mat-label>
-                                <input matInput/>
+                                <input matInput formControlName="email" />
                             </mat-form-field>
                         </div>
                         <div fxFlex="49%">
                             <mat-form-field appearance="outline" fxFlex="100%">
                                 <mat-label>Password</mat-label>
-                                <input matInput type="password"/>
+                                <input matInput formControlName="password" type="password"/>
                             </mat-form-field>
                         </div>
                     </div>
