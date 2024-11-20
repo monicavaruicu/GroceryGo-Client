@@ -8,5 +8,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class LoginComponent {
 
+  constructor(){}
+  
   login() {}
 }
