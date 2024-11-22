@@ -1,14 +1,14 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthenticationService } from '../services/auth.service';
 import { SessionService } from '../services/session.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthenticationService } from '../services/authetication.service';
 
 @Component({
   selector: 'app-avm-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrl: './login.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
 export class LoginComponent {
@@ -22,7 +22,7 @@ export class LoginComponent {
 
   constructor(
     private router: Router,
-    private authService: AuthenticationService,
+    private authenticationService: AuthenticationService,
     private sessionService: SessionService,
     private snackBar: MatSnackBar
   ) {
@@ -39,7 +39,7 @@ export class LoginComponent {
     const Email = this.loginForm.get('email').value;
     const Password = this.loginForm.get('password').value;
 
-    this.authService.login({ Email, Password }).subscribe(
+    this.authenticationService.login({ Email, Password }).subscribe(
       (result) => {
         this.sessionService.startSession(result);
         this.redirectToPageByRole();

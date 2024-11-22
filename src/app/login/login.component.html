@@ -16,14 +16,14 @@
             </mat-form-field>
           </div>
         </form>
-        <div fxLayout="column" fxLayoutAlign="space-between start" fxLayoutGap="2%">
+        <div fxLayout="column" fxLayoutAlign="space-between" fxLayoutGap="2%">
           <div>
-            <button mat-raised-button (click)="login()" type="submit" form="loginForm" color="primary">
+            <button mat-raised-button (click)="login()" type="submit" form="loginForm" color="primary" fxFlex="100%">
               Login
             </button>
           </div>
           <div>
-            <button mat-raised-button color="primary" [routerLink]="['/register']">
+            <button mat-raised-button [routerLink]="['/register']" fxFlex="100%">
               Register
             </button>
           </div>
