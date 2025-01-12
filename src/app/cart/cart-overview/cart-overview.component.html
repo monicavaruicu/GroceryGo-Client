@@ -1,0 +1,16 @@
+<div fxLayoutAlign="center start" class="main-container" fxLayoutGap="5%">
+    <div fxFlex="60%">
+        <div *ngFor="let product of pagedProducts">
+            <app-cart-product-card [product]="product" [quantity]="countProductOccurrences(product)"
+                (productDeleted)="onProductDeleted()"></app-cart-product-card>
+        </div>
+        <div>
+            <mat-paginator *ngIf="distinctProducts.length" [length]="distinctProducts.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]"
+                (page)="pageChanged($event)">
+            </mat-paginator>
+        </div>
+    </div>
+    <div fxFlex="20%">
+        <app-cart-summary-card [products]="products"></app-cart-summary-card>
+    </div>
+</div>

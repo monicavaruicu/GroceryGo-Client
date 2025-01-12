@@ -1,0 +1,36 @@
+<mat-card class="product-card" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="7%">
+    <div [routerLink]="isAdmin() ? ['/product/edit', product.id] : ['/product', product.id]">
+        <img fxFlex="40%"
+            src="https://sanovita.ro/blog/wp-content/uploads/2022/11/shutterstock_1879864486-768x576.jpg"
+            alt="Product Image" class="product-image" />
+    </div>
+    <div fxFlex="20%" [routerLink]="isAdmin() ? ['/product/edit', product.id] : ['/product', product.id]">
+        <mat-card-header class="card-header" fxLayout="column">
+            <div>
+                <p class="card-title" [matTooltip]="product.name"
+                    [ngStyle]="{'textOverflow': 'ellipsis', 'whiteSpace': 'nowrap', 'overflow': 'hidden'}">
+                    {{ product.name }}
+                </p>
+                <p class="card-description" [matTooltip]="product.description"
+                    [ngStyle]="{'textOverflow': 'ellipsis', 'whiteSpace': 'nowrap', 'overflow': 'hidden'}">
+                    {{ product.description }}
+                </p>
+            </div>
+        </mat-card-header>
+    </div>
+    <div fxFlex="10%" [routerLink]="isAdmin() ? ['/product/edit', product.id] : ['/product', product.id]">
+        <p class="card-price">
+            {{ product.price }} lei
+        </p>
+    </div>
+    <div fxFlex="10%">
+        <button mat-raised-button color="warn" class="delete-button" (click)="delete()">
+            Delete
+        </button>
+    </div>
+    <div fxFlex="10%" [routerLink]="isAdmin() ? ['/product/edit', product.id] : ['/product', product.id]">
+        <p class="card-quantity">
+            Quantity: {{ quantity }}
+        </p>
+    </div>
+</mat-card>

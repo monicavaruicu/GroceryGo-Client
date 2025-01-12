@@ -1,0 +1,54 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="main-container">
+    <mat-card fxFlex="50%" class="card">
+        <mat-card-content>
+            <div fxLayout="column" fxLayoutAlign="space-around">
+                <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="5%">
+                    <mat-form-field appearance="outline" fxFlex="50%">
+                        <mat-label>First Name</mat-label>
+                        <input matInput [value]="firstName" disabled />
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" fxFlex="50%">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput [value]="lastName" disabled />
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" fxFlex="48%">
+                        <mat-label>Email</mat-label>
+                        <input matInput [value]="email" disabled />
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" fxFlex="100%">
+                        <mat-label>Address</mat-label>
+                        <input matInput [(ngModel)]="address" required/>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" fxFlex="35%">
+                        <mat-label>Payment method</mat-label>
+                        <mat-select [(ngModel)]="selectedPaymentMethod" required>
+                            <mat-option value="1">Cash</mat-option>
+                            <mat-option value="2">Credit Card</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="end center">
+                    <button *ngIf="address && selectedPaymentMethod == 1 && address.length >= 10" 
+                        mat-raised-button 
+                        color="accent"
+                        (click)="placeOrder()">
+                  Place Order
+                </button>
+              
+                <button *ngIf="address && selectedPaymentMethod == 2 && address.length >= 10" 
+                        mat-raised-button 
+                        color="accent"
+                        (click)="pay()">
+                  Pay
+                </button>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

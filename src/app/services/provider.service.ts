@@ -8,12 +8,12 @@ import { ProviderModel } from '../models/ProviderModel';
   providedIn: 'root',
 })
 export class ProviderService {
-  private baseURL = environment.apiUrl;
+  private baseURL = `${environment.apiUrl}/provider`;
 
   constructor(private http: HttpClient) {}
 
   getAllProviders(): Observable<ProviderModel[]> {
-    const url = `${this.baseURL}/Provider/get-providers`;
+    const url = `${this.baseURL}/get-all`;
     return this.http.get<ProviderModel[]>(url);
   }
 }

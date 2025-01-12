@@ -10,6 +10,13 @@ import { CategoryCreateComponent } from './category/category-create/category-cre
 import { SubcategoryCreateComponent } from './subcategory/subcategory-create/subcategory-create.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { RegisterComponent } from './register/register.component';
+import { CartOverviewComponent } from './cart/cart-overview/cart-overview.component';
+import { FavoritesOverviewComponent } from './favorites/favorites-overview/favorites-overview.component';
+import { OrdersOverviewComponent } from './orders/orders-overview/orders-overview.component';
+import { OrderCheckoutComponent } from './orders/order-checkout/order-checkout.component';
+import { PaymentSuccessComponent } from './payment/payment-success/payment-success.component';
+import { PaymentCancelComponent } from './payment/payment-cancel/payment-cancel.component';
+import { OrderProductsOverviewComponent } from './orders/order-products-overview/order-products-overview.component';
 
 const routes: Routes = [
   {
@@ -52,6 +59,34 @@ const routes: Routes = [
   {
     path: 'product/edit/:productId',
     component: ProductEditComponent,
+  },
+  {
+    path: 'cart',
+    component: CartOverviewComponent,
+  },
+  {
+    path: 'favorites',
+    component: FavoritesOverviewComponent,
+  },
+  {
+    path: 'orders',
+    component: OrdersOverviewComponent,
+  },
+  {
+    path: 'checkout',
+    component: OrderCheckoutComponent,
+  },
+  {
+    path: 'payment/success',
+    component: PaymentSuccessComponent,
+  },
+  {
+    path: 'payment/cancel',
+    component: PaymentCancelComponent,
+  },
+  {
+    path: 'orders/:orderId/products',
+    component: OrderProductsOverviewComponent,
   }
 ];
 

@@ -16,6 +16,16 @@
   font-weight: 500;
 }
 
+.card-price {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.card-description {
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
 .product-image {
   margin: 5%;
 }
@@ -25,13 +35,6 @@
   height: 30%;
 }
 
-.action-buttons {
-  margin-bottom: 3%;
-  margin-right: 3%;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
 .product-card:hover .action-buttons {
   opacity: 1;
 }
@@ -39,7 +42,6 @@
 .availability-text {
   font-size: 0.8em;
   color: green;
-  margin-top: 1%;
 }
 
 .availability-text.unavailable {
@@ -56,4 +58,26 @@
 
 .product-card.not-available .card-header {
   opacity: 0.5;
+}
+
+.favorite-button {
+  cursor: pointer;
+  font-size: 24px;
+  margin: 2%;
+}
+
+.favorite-button:hover {
+  opacity: 0.8;
+}
+
+.ellipsis-text {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.add-to-cart-button{
+  margin-bottom: 8%;
 }

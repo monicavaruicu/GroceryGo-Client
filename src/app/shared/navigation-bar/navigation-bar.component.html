@@ -1,0 +1,42 @@
+<div class="navbar" *ngIf="this.isUserLoggedIn()">
+  <mat-toolbar class="mat-elevation-z6 navbar-content" fxLayout="row" fxLayoutAlign="space-between" color="primary">
+    <div fxLayout="row" fxLayoutGap="5%">
+      <div>
+        <img class="navbar-logo" />
+      </div>
+      <div>
+        <button mat-button class="navbar-button" routerLink="categories">
+          Categories
+        </button>
+        <button mat-button class="navbar-button" routerLink="favorites">
+          Favorites
+        </button>
+        <button mat-button class="navbar-button" routerLink="orders">
+          Orders
+        </button>
+        <button mat-button class="navbar-button" routerLink="category/create" *ngIf="isAdmin()">
+          Add Category
+        </button>
+        <button mat-button class="navbar-button" routerLink="subcategory/create" *ngIf="isAdmin()">
+          Add Subcategory
+        </button>
+        <button mat-button class="navbar-button" routerLink="product/create" *ngIf="isAdmin()">
+          Add Product
+        </button>
+      </div>
+    </div>
+    <div *ngIf="this.isUserLoggedIn()">
+      <button mat-button class="navbar-button" routerLink="cart">
+        Cart
+      </button>
+      <button mat-button [matMenuTriggerFor]="menu" class="navbar-button">
+        {{ this.getUserFirstName() }}
+        {{ this.getUserLastName() }}
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="profile">Profil</button>
+        <button mat-menu-item (click)="this.logout()">Deconectare</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+</div>

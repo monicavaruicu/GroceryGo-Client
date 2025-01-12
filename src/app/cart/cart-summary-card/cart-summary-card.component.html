@@ -1,0 +1,14 @@
+<mat-card class="summary-card">
+    <mat-card-header class="card-header" fxLayout="column" fxLayoutAlign="center center">
+        <p class="card-price"> {{ total }} </p>
+        <p class="card-text">Total lei</p>
+        <p class="mini-text">(11 lei delivery cost)</p>
+    </mat-card-header>
+    <div fxLayout="column" fxLayoutAlign="space-around stretch" class="cart-button">
+        <button mat-raised-button class="order-button" [disabled]="!products || products.length === 0"
+            color="accent"
+            (click)="goToCheckout()">
+            Place Order
+        </button>
+    </div>
+</mat-card>

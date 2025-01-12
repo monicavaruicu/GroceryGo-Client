@@ -1,0 +1,15 @@
+<div fxLayoutAlign="center start" class="main-container" fxLayoutGap="5%">
+    <div fxFlex="60%">
+      <div *ngFor="let order of pagedOrders">
+        <app-orders-order-card [order]="order"></app-orders-order-card>
+      </div>
+      <div>
+        <mat-paginator *ngIf="pagedOrders.length" [length]="pagedOrders.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]"
+          (page)="pageChanged($event)">
+        </mat-paginator>
+      </div>
+    </div>
+    <div fxFlex="20%">
+      <app-orders-summary-card [orders]="orders"></app-orders-summary-card>
+    </div>
+  </div>

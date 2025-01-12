@@ -2,32 +2,31 @@
     <mat-card fxFlex="40%" class="subcategory-create-card">
         <mat-card-content>
             <div fxLayout="column" fxLayoutAlign="space-around">
-                <form>
-                    <div fxLayout="column" fxLayoutAlign="space-between" fxLayoutGap="2%">
-                        <div>
-                            <div *ngIf="imagePreview" class="image-preview" fxLayout="column" fxLayoutAlign="center center">
-                                <img [src]="imagePreview" alt="Preview Image" />
-                            </div>
-                            <input type="file" #fileInput (change)="onFileSelected($event)" hidden>
+                <div fxLayout="column" fxLayoutAlign="space-between" fxLayoutGap="2%">
+                    <div>
+                        <div *ngIf="imagePreview" class="image-preview" fxLayout="column" fxLayoutAlign="center center">
+                            <img [src]="imagePreview" alt="Preview Image" />
                         </div>
-                            <mat-form-field appearance="outline">
-                                <mat-label>Name</mat-label>
-                                <input matInput />
-                            </mat-form-field>
-                        <mat-form-field appearance="outline">
-                            <mat-label>Category</mat-label>
-                            <mat-select>
-                                <mat-option value="one">First option</mat-option>
-                                <mat-option value="two">Second option</mat-option>
-                            </mat-select>
-                        </mat-form-field>
+                        <input type="file" #fileInput (change)="onFileSelected($event)" hidden>
                     </div>
-                </form>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput [(ngModel)]="subcategoryName"/>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Category</mat-label>
+                        <mat-select [(ngModel)]="selectedCategoryId">
+                            <mat-option *ngFor="let category of categories" [value]="category.id">
+                                {{ category.name }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
                 <div fxLayout="row" fxLayoutGap="1%" fxLayoutAlign="end">
-                    <button mat-raised-button color="primary" (click)="fileInput.click()">
+                    <button mat-raised-button color="accent" (click)="fileInput.click()">
                         Upload image
                     </button>
-                    <button mat-raised-button type="submit" color="primary">
+                    <button mat-raised-button type="submit" color="primary" (click)="submit()" [disabled]="!selectedCategoryId || !subcategoryName">
                         Save
                     </button>
                 </div>

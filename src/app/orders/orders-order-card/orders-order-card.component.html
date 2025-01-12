@@ -1,0 +1,28 @@
+<mat-card class="order-card" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10%" (click)="redirectToOrderProducts()">
+    <div fxFlex="15%" class="div-id">
+        <p class="card-id">Order {{ order.id }}</p>
+    </div>
+    <div fxFlex="15%">
+        <mat-card-header class="card-header" fxLayout="column">
+            <div>
+                <p class="card-address" [matTooltip]="order.address"
+                    [ngStyle]="{'textOverflow': 'ellipsis', 'whiteSpace': 'nowrap', 'overflow': 'hidden'}">
+                    {{ order.address }}
+                </p>
+                <p class="card-date">
+                    {{ order.placementDate }}
+                </p>
+            </div>
+        </mat-card-header>
+    </div>
+    <div fxFlex="10%">
+        <p class="card-payment">
+            {{ paymentMethod }}
+        </p>
+    </div>
+    <div fxFlex="5%">
+        <p class="card-status">
+            {{ orderStatus }}
+        </p>
+    </div>
+</mat-card>

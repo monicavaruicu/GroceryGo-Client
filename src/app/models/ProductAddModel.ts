@@ -2,7 +2,7 @@ export class ProductSaveModel {
     name: string;
     description: string;
     price: number;
-    isAvailable: boolean;
+    stock: number;
     subCategoryId: number;
     providerId: number;
     picture: string;

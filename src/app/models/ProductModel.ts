@@ -3,8 +3,8 @@ export class ProductModel {
     name: string;
     description: string;
     price: number;
-    isAvailable: boolean;
-    subCategoryId: number;
+    stock: number;
+    subcategoryId: number;
     providerId: number;
     picture: string;
 }

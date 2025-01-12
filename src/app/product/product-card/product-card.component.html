@@ -1,14 +1,34 @@
-<mat-card class="product-card" [ngClass]="{'not-available': !product.isAvailable}" [routerLink]="isAdmin() ? ['/product/edit', product.id] : ['/product', product.id]">
+<mat-card class="product-card" [ngClass]="{'not-available': !product.stock}">
+  <div class="favorite-button" fxLayout="column" fxLayoutAlign="space-around end" (click)="toggleFavorite()"
+    matTooltip="Add to Favorites" matTooltipPosition="above">
+    <ng-container *ngIf="isFavorite; else notFavorite">
+      ❤️
+    </ng-container>
+    <ng-template #notFavorite>
+      🤍
+    </ng-template>
+  </div>
   <img
-    src="https://ro.store.asus.com/media/catalog/product/_/x/_xi7ozoiefj179vae.png?width=439&height=439&store=ro_RO&image-type=image"
+    src="https://sanovita.ro/blog/wp-content/uploads/2022/11/shutterstock_1879864486-768x576.jpg"
     alt="Product Image" class="product-image" />
   <mat-card-header class="card-header" fxLayout="column">
-    <div>
-      <p class="card-title" [matTooltip]="product.name" [ngStyle]="{'textOverflow': 'ellipsis', 'whiteSpace': 'nowrap', 'overflow': 'hidden'}">
+    <div [routerLink]="isAdmin() ? ['/product/edit', product.id] : ['/product', product.id]" fxLayout="column">
+      <p class="card-title" [matTooltip]="product.name"
+        [ngStyle]="{'textOverflow': 'ellipsis', 'whiteSpace': 'nowrap', 'overflow': 'hidden'}">
         {{ product.name }}
       </p>
-      <p *ngIf="product.isAvailable" class="availability-text">Available</p>
-      <p *ngIf="!product.isAvailable" class="availability-text unavailable">Not Available</p>
+      <p class="card-description" [matTooltip]="product.description"
+        [ngStyle]="{'textOverflow': 'ellipsis', 'whiteSpace': 'nowrap', 'overflow': 'hidden'}">
+        {{ product.description }}
+      </p>
+      <p class="card-price">
+        {{ product.price }} lei
+      </p>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="space-around stretch" class="cart-button">
+      <button mat-raised-button class="add-to-cart-button" color="accent" (click)="addToCart()">
+        Add to Cart
+      </button>
     </div>
   </mat-card-header>
 </mat-card>

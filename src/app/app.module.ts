@@ -40,6 +40,22 @@ import { ProductsOverviewComponent } from './product/products-overview/products-
 import { SubcategoriesOverviewComponent } from './subcategory/subcategories-overview/subcategories-overview.component';
 import { SubcategoryCardComponent } from './subcategory/subcategory-card/subcategory-card.component';
 import { SubcategoryCreateComponent } from './subcategory/subcategory-create/subcategory-create.component';
+import { NavigationBarComponent } from './shared/navigation-bar/navigation-bar.component';
+import { CartOverviewComponent } from './cart/cart-overview/cart-overview.component';
+import { CartProductCardComponent } from './cart/cart-product-card/cart-product-card.component';
+import { CartSummaryCardComponent } from './cart/cart-summary-card/cart-summary-card.component';
+import { FavoritesOverviewComponent } from './favorites/favorites-overview/favorites-overview.component';
+import { FavoritesProductCardComponent } from './favorites/favorites-product-card/favorites-product-card.component';
+import { FavoritesSummaryCardComponent } from './favorites/favorites-summary-card/favorites-summary-card.component';
+import { OrdersOverviewComponent } from './orders/orders-overview/orders-overview.component';
+import { OrdersOrderCardComponent } from './orders/orders-order-card/orders-order-card.component';
+import { OrdersSummaryCardComponent } from './orders/orders-summary-card/orders-summary-card.component';
+import { OrderCheckoutComponent } from './orders/order-checkout/order-checkout.component';
+import { PaymentSuccessComponent } from './payment/payment-success/payment-success.component';
+import { PaymentCancelComponent } from './payment/payment-cancel/payment-cancel.component';
+import { OrderProductsOverviewComponent } from './orders/order-products-overview/order-products-overview.component';
+import { OrderProductCardComponent } from './orders/order-product-card/order-product-card.component';
+import { OrderProductsSummaryCardComponent } from './orders/order-products-summary-card/order-products-summary-card.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +72,22 @@ import { SubcategoryCreateComponent } from './subcategory/subcategory-create/sub
     SubcategoryCreateComponent,
     CategoryCreateComponent,
     ProductEditComponent,
+    NavigationBarComponent,
+    CartOverviewComponent,
+    CartProductCardComponent,
+    CartSummaryCardComponent,
+    FavoritesOverviewComponent,
+    FavoritesProductCardComponent,
+    FavoritesSummaryCardComponent,
+    OrdersOverviewComponent,
+    OrdersOrderCardComponent,
+    OrdersSummaryCardComponent,
+    OrderCheckoutComponent,
+    PaymentSuccessComponent,
+    PaymentCancelComponent,
+    OrderProductsOverviewComponent,
+    OrderProductCardComponent,
+    OrderProductsSummaryCardComponent
   ],
   imports: [
     BrowserModule,

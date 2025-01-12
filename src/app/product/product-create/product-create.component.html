@@ -47,6 +47,10 @@
                                     </mat-select>
                                 </mat-form-field>
                                 <mat-form-field appearance="outline" fxFlex="20%">
+                                    <mat-label>Stock</mat-label>
+                                    <input matInput formControlName="stock" />
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" fxFlex="20%">
                                     <mat-label>Price</mat-label>
                                     <input matInput formControlName="price" />
                                 </mat-form-field>
@@ -61,7 +65,7 @@
                     </div>
                 </form>
                 <div fxLayout="row" fxLayoutGap="1%" fxLayoutAlign="end">
-                    <button mat-raised-button color="primary" (click)="fileInput.click()">
+                    <button mat-raised-button color="accent" (click)="fileInput.click()">
                         Upload image
                     </button>
                     <button mat-raised-button type="submit" color="primary" (click)="submit()">

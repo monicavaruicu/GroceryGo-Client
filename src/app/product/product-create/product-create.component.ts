@@ -32,6 +32,7 @@ export class ProductCreateComponent {
     subcategory: new FormControl('', [Validators.required]),
     provider: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required]),
+    stock: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
   });
 
@@ -51,13 +52,14 @@ export class ProductCreateComponent {
     const subcategory = this.addProductForm.get('subcategory').value;
     const provider = this.addProductForm.get('provider').value;
     const price = this.addProductForm.get('price').value;
+    const stock = this.addProductForm.get('stock').value;
     const description = this.addProductForm.get('description').value;
 
     var product: ProductSaveModel = {
       name: name,
       description: description,
       price: Number(price),
-      isAvailable: true,
+      stock: Number(stock),
       subCategoryId: Number(subcategory),
       providerId: 1,
       picture: ''

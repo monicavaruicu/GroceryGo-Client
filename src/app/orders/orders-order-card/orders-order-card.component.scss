@@ -1,0 +1,47 @@
+.order-card {
+    cursor: pointer;
+    border-radius: 0;
+    background-color: white;
+    box-shadow: 2px 2px 7px 3px rgb(209, 209, 209);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    margin-top: 1%;
+    height: 8rem;
+  }
+  
+  .card-id {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  
+  .card-address {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .card-date {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .card-payment {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .card-status {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  
+  .ellipsis-text {
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .div-id {
+    margin-left: 7%;
+  }
+  

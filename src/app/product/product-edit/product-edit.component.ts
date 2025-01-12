@@ -25,11 +25,11 @@ export class ProductEditComponent {
   editProductForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     category: new FormControl('', [Validators.required]),
-    subcategory: new FormControl('', [Validators.required]),
+    subcategory: new FormControl(0, [Validators.required]),
     provider: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
-    isAvailable: new FormControl(false, [Validators.required]),
+    stock: new FormControl('', [Validators.required]),
   });
 
   imagePreview: string;
@@ -62,21 +62,21 @@ export class ProductEditComponent {
     const provider = this.editProductForm.get('provider').value;
     const price = this.editProductForm.get('price').value;
     const description = this.editProductForm.get('description').value;
-    const isAvailable = this.editProductForm.get('isAvailable').value;
+    const stock = this.editProductForm.get('stock').value;
 
     var product: ProductModel = {
       id: this.product.id,
       name: name,
       description: description,
       price: Number(price),
-      isAvailable: Boolean(isAvailable),
-      subCategoryId: 1,
+      stock: Number(stock),
+      subcategoryId: 1,
       providerId: 1,
       picture: ''
     }
 
     this.productService.updateProduct(product).subscribe(() => {
-      const redirectUrl = `/products/${this.product.subCategoryId}`;
+      const redirectUrl = `/products/${this.product.subcategoryId}`;
       this.router.navigate([redirectUrl]);
       this.snackBar.open('Product successfully saved', 'Dismiss', {
         duration: 3000,
@@ -86,7 +86,7 @@ export class ProductEditComponent {
 
   delete() {
     this.productService.deleteProduct(this.product.id).subscribe(() => {
-      const redirectUrl = `/products/${this.product.subCategoryId}`;
+      const redirectUrl = `/products/${this.product.subcategoryId}`;
       this.router.navigate([redirectUrl]);
       this.snackBar.open('Product successfully deleted', 'Dismiss', {
         duration: 3000,
@@ -98,7 +98,7 @@ export class ProductEditComponent {
     this.productService.getProductById(productId).subscribe(
       (product: ProductModel) => {
         this.product = product;
-        this.populateForm();
+        this.populateForm(product);
       }
     )
   }
@@ -117,15 +117,15 @@ export class ProductEditComponent {
     }
   }
 
-  populateForm() {
+  populateForm(product: ProductModel) {
     this.editProductForm.patchValue({
-      name: this.product.name,
+      name: product.name,
       category: ' ',
-      subcategory: this.product.subCategoryId.toString(),
-      provider: ' ',
-      price: this.product.price.toString(),
-      description: this.product.description,
-      isAvailable: this.product.isAvailable
+      subcategory: product.subcategoryId,
+      provider: ' ', 
+      price: product.price.toString(),
+      description: product.description,
+      stock: product.stock.toString()
     });
   }
 

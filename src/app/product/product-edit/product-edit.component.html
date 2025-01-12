@@ -21,7 +21,7 @@
 
                                 <mat-form-field appearance="outline" fxFlex="100%">
                                     <mat-label>Category</mat-label>
-                                    <mat-select formControlName="category">
+                                    <mat-select formControlName="category" (selectionChange)="onCategoryChange($event.value)">
                                         <mat-option *ngFor="let category of categories" [value]="category.id">
                                             {{ category.name }}
                                         </mat-option>
@@ -40,10 +40,14 @@
                                 <mat-form-field appearance="outline" fxFlex="49%">
                                     <mat-label>Provider</mat-label>
                                     <mat-select formControlName="provider">
-                                        <mat-option *ngFor="let provider of providers" [value]="provider.id">
+                                        <mat-option *ngFor="let provider of providers" [value]="provider.id.toString()">
                                             {{ provider.name }}
                                         </mat-option>
                                     </mat-select>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" fxFlex="20%">
+                                    <mat-label>Stock</mat-label>
+                                    <input matInput formControlName="stock"/>
                                 </mat-form-field>
                                 <mat-form-field appearance="outline" fxFlex="20%">
                                     <mat-label>Price</mat-label>
@@ -56,18 +60,15 @@
                                     <textarea matInput rows="6" formControlName="description"></textarea>
                                 </mat-form-field>
                             </div>
-                            <div fxLayout="row" fxLayoutAlign="start center">
-                                <mat-checkbox formControlName="isAvailable">Product Available</mat-checkbox>
-                            </div>
                         </div>
                     </div>
                 </form>
                 <div fxLayout="row" fxLayoutGap="1%" fxLayoutAlign="end">
+                    <button mat-raised-button type="submit" color="warn" (click)="delete()">
+                        Delete product
+                    </button>
                     <button mat-raised-button color="primary" (click)="fileInput.click()">
                         Upload image
-                    </button>
-                    <button mat-raised-button type="submit" color="primary" (click)="delete()">
-                        Delete product
                     </button>
                     <button mat-raised-button type="submit" color="primary" (click)="submit()">
                         Save

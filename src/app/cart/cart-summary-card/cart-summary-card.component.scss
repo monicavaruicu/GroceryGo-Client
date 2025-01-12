@@ -1,0 +1,28 @@
+.summary-card {
+    border-radius: 0;
+    background-color: white;
+    box-shadow: 2px 2px 7px 3px rgb(209, 209, 209);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    margin-top: 1%;
+  }
+  
+  .card-price {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  
+  .card-text {
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+
+  .mini-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+.order-button {
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}

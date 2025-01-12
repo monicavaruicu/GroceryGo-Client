@@ -1,0 +1,17 @@
+.success-card {
+    border-radius: 0;
+    background-color: white;
+    box-shadow: 2px 2px 7px 3px rgb(209, 209, 209);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .material-symbols-outlined {
+    margin-top: 2%;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48;
+    font-size: 4rem;
+    color: green;
+}

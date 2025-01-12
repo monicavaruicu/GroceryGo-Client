@@ -20,7 +20,7 @@ export class CategoriesOverviewComponent {
 
   constructor (private categoryService: CategoryService) {}
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.getAllCategories();
   }
 

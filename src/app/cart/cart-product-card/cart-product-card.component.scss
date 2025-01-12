@@ -1,0 +1,42 @@
+.product-card {
+    cursor: pointer;
+    border-radius: 0;
+    background-color: white;
+    box-shadow: 2px 2px 7px 3px rgb(209, 209, 209);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    margin-top: 1%;
+    height: 8rem;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .card-price {
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+  
+  .card-description {
+    font-size: 0.7rem;
+    font-weight: 500;
+  }
+
+  .card-quantity {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .product-image {
+    margin: 5%;
+  }
+  
+  .ellipsis-text {
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  

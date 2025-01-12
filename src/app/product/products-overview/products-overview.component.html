@@ -1,9 +1,34 @@
 <div fxLayoutAlign="center center" class="main-container">
-  <div fxFlex="80%">
-    <div fxLayout="column" fxLayoutAlign="space-around end">
+  <div fxFlex="90%">
+    <div div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="2%">
       <mat-form-field appearance="outline">
-        <mat-label>Cautare</mat-label>
-        <input matInput (keyup)="applyFilter($event)" #input />
+        <mat-label>Search</mat-label>
+        <input matInput
+          (keyup)="applyFilter($event, searchInput.value, minPriceInput.value, maxPriceInput.value, providerSelect.value)"
+          #searchInput />
+      </mat-form-field>
+      <mat-form-field appearance="outline" fxFlex="8%">
+        <mat-label>Min Price</mat-label>
+        <input matInput
+          (keyup)="applyFilter($event, searchInput.value, minPriceInput.value, maxPriceInput.value, providerSelect.value)"
+          #minPriceInput />
+      </mat-form-field>
+      <p>-</p>
+      <mat-form-field appearance="outline" fxFlex="8%">
+        <mat-label>Max Price</mat-label>
+        <input matInput
+          (keyup)="applyFilter($event, searchInput.value, minPriceInput.value, maxPriceInput.value, providerSelect.value)"
+          #maxPriceInput />
+      </mat-form-field>
+      <mat-form-field appearance="outline" fxFlex="10%">
+        <mat-label>Provider</mat-label>
+        <mat-select
+          (selectionChange)="applyFilter(null, searchInput.value, minPriceInput.value, maxPriceInput.value, providerSelect.value)"
+          #providerSelect>
+          <mat-option *ngFor="let provider of providers" [value]="provider.id">
+            {{ provider.name }}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
     <div fxLayout="column">
